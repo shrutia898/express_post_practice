@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Posts</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+        }
+
+        .post {
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 10px;
+            margin-bottom: 20px;
+            
+        }
+
+        .post p {
+            margin: 5px 0;
+        }
+
+        .post a {
+            text-decoration: none;
+            color: #007bff;
+            font-weight: bold;
+        }
+
+        .post a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <h1>All Posts</h1>
+
+    <% for (let post of posts) { %>
+        <div class="post">
+            <p>Author: <%= post.author %></p>
+            <p>Text: <%= post.text %></p>
+            <a href="/posts/<%= post.id %>">Details</a>
+        </div>
+    <% } %>
+
+    <a href="/posts/newpost">Add New Post</a>
+</body>
+</html>

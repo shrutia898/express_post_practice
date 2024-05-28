@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Post Details</title>
+    <style>
+        /* Global styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f8f9fa; /* Light gray background */
+        }
+
+        h1 {
+            color: #333; /* Dark gray heading */
+            margin-bottom: 20px;
+        }
+
+        /* Post details container */
+        .post-details {
+            background-color: #fff; /* White background */
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        /* Post details text */
+        .post-details p {
+            margin: 0;
+            line-height: 1.6;
+            color: #333; /* Dark gray text */
+        }
+
+        /* Post details labels */
+        .post-details p strong {
+            font-weight: bold;
+            color: #007bff; /* Blue labels */
+        }
+
+        /* Edit link */
+        .edit-link {
+            display: inline-block;
+            background-color: #007bff; /* Blue button */
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .edit-link:hover {
+            background-color: #0056b3; /* Darker blue on hover */
+        }
+    </style>
+</head>
+<body>
+    <h1>Post by <%= post.author %></h1>
+    <div class="post-details">
+        <p><strong>ID:</strong> <%= post.id %></p>
+        <p><strong>Author:</strong> <%= post.author %></p>
+        <p><strong>Post Topic:</strong> <%= post.topic %></p>
+        <p><strong>Text:</strong> <%= post.text %></p>
+        <p><strong>Likes:</strong> <%= post.likes %></p>
+    </div>
+    <a href="/posts/<%= post.id %>/edit" class="edit-link">Edit</a>
+
+    <form action = '/posts/<%=post.id%>?_method=DELETE' method="POST">
+        <button class="edit-link">Delete</button>
+    </form>
+</body>
+</html>
